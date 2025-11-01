@@ -1,55 +1,94 @@
-# React + TypeScript + Vite
+# Ramji's Portfolio - Next.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, performant portfolio website built with Next.js, showcasing projects, experience, and skills.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4.1
+- **UI Components**: Radix UI
+- **Animations**: Framer Motion, GSAP, AOS
+- **3D Graphics**: Three.js, React Three Fiber
+- **Authentication**: Supabase
+- **Form Handling**: EmailJS
+- **Database**: MongoDB, Supabase
 
-## Expanding the ESLint configuration
+## 📦 Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Install dependencies
+npm install
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The application will be available at `http://localhost:3000`
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 📁 Project Structure
+
 ```
-# newportfolio
+Front/
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── project/           # Project detail pages
+│   ├── internship/        # Internship detail pages
+│   ├── research/          # Research page
+│   └── certifications/    # Certifications page
+├── src/
+│   ├── components/        # React components
+│   ├── context/          # React context providers
+│   ├── lib/              # Utility libraries
+│   ├── styles/           # Global styles
+│   └── utils/            # Utility functions
+├── public/               # Static assets
+└── next.config.mjs       # Next.js configuration
+```
+
+## 🔧 Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
+NEXT_PUBLIC_API_URL=your_api_url
+NEXT_PUBLIC_EMAIL_TO=your_email
+```
+
+## 🎨 Features
+
+- ✅ Server-side rendering with Next.js App Router
+- ✅ Responsive design with Tailwind CSS
+- ✅ Smooth animations and transitions
+- ✅ 3D graphics and interactive elements
+- ✅ Dynamic project and internship pages
+- ✅ Contact form with EmailJS integration
+- ✅ Admin authentication system
+- ✅ Optimized performance and SEO
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run Next.js linting
+- `npm run type-check` - Run TypeScript type checking
+
+## 🔄 Migration from Vite
+
+This project was successfully migrated from Vite to Next.js, maintaining the same design and functionality while benefiting from Next.js features like SSR, optimized routing, and better performance.
+
+## 📄 License
+
+© 2023 Ramji. All rights reserved.
