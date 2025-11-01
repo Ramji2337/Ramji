@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface User {
@@ -77,7 +79,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const fetchUserData = async () => {
     const userId = sessionStorage.getItem('userId');
     if (!userId) return;
-    const url = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+    const url = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
     try {
       const response = await fetch(`${url}/auth/user/${userId}`);
       if (!response.ok) {

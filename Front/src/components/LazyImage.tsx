@@ -1,3 +1,5 @@
+'use client';
+
 import { ImgHTMLAttributes, useState, useEffect } from 'react';
 
 interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {

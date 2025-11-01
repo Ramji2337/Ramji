@@ -1,7 +1,6 @@
-"use client"
+'use client';
 
 import { useState, useEffect, useRef } from "react"
-import fingerprintImg from "/finger.png"
 
 interface LoadingProps {
   onComplete?: () => void
@@ -164,7 +163,7 @@ export default function Loading({ onComplete }: LoadingProps) {
             }}
           >
             <img
-              src={fingerprintImg}
+              src="/finger.png"
               alt="Fingerprint"
               style={{
                 width: "180px",

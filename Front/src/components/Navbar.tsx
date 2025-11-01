@@ -1,5 +1,7 @@
+'use client';
+
 import  { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter, usePathname } from 'next/navigation';
 import { FaFileAlt, FaUserLock, FaTimes } from 'react-icons/fa';
 import LoginModal from './LoginModal';
 import { useAuth } from '../context/AuthContext';
@@ -36,7 +38,8 @@ const Navbar = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
+  const pathname = usePathname();
   const { isLoggedIn, isAdmin, user, login, logout } = useAuth();
   
   // Sync active state with activeSection prop
@@ -80,7 +83,7 @@ const Navbar = ({
     }
 
     if (path) {
-      navigate(path);
+      router.push(path);
       return;
     }
 
@@ -90,8 +93,8 @@ const Navbar = ({
       // Fix for the hero section - check if it's the home/hero link
       const isHomeLink = name === "Home" || sectionId === "hero";
       
-      if (window.location.pathname !== '/') {
-        navigate(`/${link}`);
+      if (pathname !== '/') {
+        router.push(`/${link}`);
       } else {
         // For home link, look for "hero" element
         const element = isHomeLink 
@@ -130,7 +133,7 @@ const Navbar = ({
         }
       }
     } else {
-      navigate(link);
+      router.push(link);
     }
   };
 

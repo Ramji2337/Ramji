@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLock, FaTimes, FaUserPlus, FaSignInAlt, FaExclamationTriangle } from "react-icons/fa";
@@ -36,7 +38,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin }) => 
     
     setLoading(true);
     setError("");
-    const url = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+    const url = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
     try {
       const response = await fetch(`${url}/auth/login`, {
         method: "POST",
@@ -99,7 +101,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin }) => 
     
     setLoading(true);
     setError("");
-    const url = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+    const url = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
     try {
       const response = await fetch(`${url}/auth/signup`, {
         method: "POST",

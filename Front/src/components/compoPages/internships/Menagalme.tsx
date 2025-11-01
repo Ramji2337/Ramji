@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { FaArrowLeft, FaExternalLinkAlt, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Menagalme: React.FC = () => {
   return (
@@ -9,7 +11,7 @@ const Menagalme: React.FC = () => {
         {/* Back button */}
         <div className="mb-8">
           <Link 
-            to="/" 
+            href="/" 
             className="inline-flex items-center text-[#00BFFF] hover:text-[#0099cc] transition-colors"
           >
             <FaArrowLeft className="mr-2" />

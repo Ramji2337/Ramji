@@ -1,6 +1,8 @@
+'use client';
+
 import { FC } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface Internship {
   id: number;
@@ -98,7 +100,7 @@ export const InternshipCard: FC<InternshipCardProps> = ({ internship, index }) =
         </div>
         
         <Link 
-          to={internship.route}
+          href={internship.route}
           className="mt-auto flex justify-between items-center w-full text-sm text-[var(--card-color)] hover:text-white group-hover:text-white transition-colors duration-300"
         >
           <span>View details</span>

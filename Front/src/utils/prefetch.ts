@@ -3,8 +3,10 @@
  * Automatically prefetch routes when links are hovered or visible
  */
 
+'use client';
+
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 
 // Routes to prefetch on hover/visibility
 const PREFETCH_ROUTES = [
@@ -25,7 +27,7 @@ const PREFETCH_ROUTES = [
  * Usage: Add to your App component
  */
 export const usePrefetchRoutes = () => {
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     // Prefetch routes when user hovers over links
@@ -58,12 +60,12 @@ export const usePrefetchRoutes = () => {
       let nextRoute: string | null = null;
 
       // Smart prefetching based on current route
-      if (location.pathname === '/') {
+      if (pathname === '/') {
         // On home page, prefetch first project
         nextRoute = '/project/1';
-      } else if (location.pathname.startsWith('/project/')) {
+      } else if (pathname?.startsWith('/project/')) {
         // On project page, prefetch next project
-        const currentNum = parseInt(location.pathname.split('/').pop() || '1');
+        const currentNum = parseInt(pathname.split('/').pop() || '1');
         if (currentNum < 5) {
           nextRoute = `/project/${currentNum + 1}`;
         }
@@ -81,7 +83,7 @@ export const usePrefetchRoutes = () => {
     // Prefetch after a short delay
     const timer = setTimeout(prefetchNextRoute, 2000);
     return () => clearTimeout(timer);
-  }, [location.pathname]);
+  }, [pathname]);
 };
 
 /**
