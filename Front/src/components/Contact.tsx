@@ -1,3 +1,5 @@
+'use client';
+
 import { FaEnvelope, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
@@ -6,9 +8,9 @@ import Swal from 'sweetalert2';
 import * as THREE from 'three';
 
 // Use environment variables for API endpoints and email configuration
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
 const CONTACT_ENDPOINT = `${API_URL}/api/contact`;
-const EMAIL_TO = import.meta.env.VITE_EMAIL_TO || 'ramjib2311@gmail.com';
+const EMAIL_TO = process.env.NEXT_PUBLIC_EMAIL_TO || 'ramjib2311@gmail.com';
 
 const generateSpherePoints = () => {
   const points = [];

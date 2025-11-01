@@ -1,3 +1,5 @@
+'use client';
+
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -264,7 +266,7 @@ const Skills = () => {
     const fetchSkills = async () => {
       try {
         // Use environment variable for API URL with the correct endpoint
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
         const response = await fetch(`${API_URL}/skills`);
         
         if (!response.ok) {
@@ -372,7 +374,7 @@ const Skills = () => {
       const updatedSkills = [...skills, suggestedSkill];
       
       // Send the updated skills to the backend
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
       const response = await fetch(`${API_URL}/skills`, {
         method: 'POST',
         headers: {

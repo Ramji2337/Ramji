@@ -1,3 +1,5 @@
+'use client';
+
 "use client";
 
 import React, { useState, useRef, Suspense } from "react";

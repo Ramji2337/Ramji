@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useState, useEffect } from "react";
 import { FaSearch, FaDownload, FaGraduationCap, FaQuoteRight, FaExternalLinkAlt, FaShieldAlt } from 'react-icons/fa';
 import { gsap } from "gsap";

@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
 import React from "react"
 
 import { useState, useEffect } from "react"
 import { FaExternalLinkAlt, FaGithub, FaPlus } from "react-icons/fa"
-import { useNavigate } from "react-router-dom"
+import { useRouter } from "next/navigation"
 import { useAuth } from '../context/AuthContext';
 
 interface Project {
@@ -22,7 +22,7 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
     const fetchProjects = async () => {
       try {
         // Use environment variable for API URL, with fallback to localhost
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+        const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
         const response = await fetch(`${API_URL}/demo`);
         
         if (!response.ok) {
@@ -148,7 +148,7 @@ const Projects: React.FC = () => {
       };
 
       // Use environment variable for API URL
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:9000';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:9000';
       const response = await fetch(`${API_URL}/demo`, {
         method: 'POST',
         headers: {
@@ -595,12 +595,12 @@ const Projects: React.FC = () => {
                     onClick={() => {
                       // Check for specific projects that need special routing
                       if (project.title === "Wistravel") {
-                        navigate("/project/5");
+                        router.push("/project/5");
                       } else if (project.title === "FocusAI – Productive Assistant") {
-                        navigate("/project/4");
+                        router.push("/project/4");
                       } else {
                         // Default navigation based on index
-                        navigate(`/project/${index + 1}`);
+                        router.push(`/project/${index + 1}`);
                       }
                     }} 
                     className="bg-[#151030]/80 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-[#00BFFF]/20 shadow-xl transition-all duration-300 book-card project-card"

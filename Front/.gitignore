@@ -19,3 +19,10 @@ dist-ssr
 *.sw?
 
 /generated/prisma
+
+# Next.js
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
